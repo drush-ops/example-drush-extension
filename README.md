@@ -62,4 +62,5 @@ Customizing
 2. Alter "name", "description" and etc. in composer.json to suit.
 3. Rename ExampleCommands.php and ExampleCommandsTest.php for your project.
 4. Configuration and site aliases for use in testing can be placed in 'sut/drush/drush.yml' and 'sut/drush/sites/self.site.yml', respectively.
-5. Add your extension on packagist.org so that it may be installed via Composer.
+5. Examine 'sut/drush/drush.yml' and 'sut/drush/drushrc.php', and alter the names of the example command files to match the names in your project. This is necessary for Drush to be able to find your command files when running tests or doing ad-hoc testing, as usually, command files are searched for in the parent directory of the project root.
+6. Add your extension on packagist.org so that it may be installed via Composer.

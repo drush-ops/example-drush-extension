@@ -6,11 +6,11 @@ use Drush\TestTraits\DrushTestTrait;
 use TestUtils\FixturesTrait;
 
 /**
- * This example test does not exercise our Drush extension at all; its
- * only purpose is to demonstrate how to use the fixtures class to install
- * Drupal so that a command that requires a full bootstrap may be tested.
+ * This test does a full bootstrap of our Drupal site-under-test,
+ * and then tests to see if our example status field hook successfully
+ * added the 'example-status' field to the `drush core:status` command.
  */
-class BootstrapDrupalTest extends TestCase
+class ExampleStatusFieldHookTest extends TestCase
 {
     use FixturesTrait;
 
@@ -30,9 +30,16 @@ class BootstrapDrupalTest extends TestCase
      */
     public function testDrushStatus()
     {
+        $this->drush('version', [], ['format' => 'string']);
+        $version = $this->getOutput();
+        if ($version[0] == '8') {
+            $this->markTestSkipped('Status field injection only works in Drush 9+');
+        }
+
         $this->drush('status', [], ['format' => 'json']);
         $json = $this->getOutputFromJSON();
         $this->assertEquals('Successful', $json['bootstrap']);
         $this->assertEquals('Connected', $json['db-status']);
+        $this->assertEquals('Added by Drush\Commands\example_drush_extension\ExampleStatusFieldHook::addCoreStatusField', $json['example-status']);
     }
 }

@@ -6,6 +6,7 @@
 drush:
   commands:
     '\Drush\Commands\example_drush_extension\ExampleCommands': '${env.cwd}/ExampleCommands.php'
+    '\Drush\Commands\example_drush_extension\ExampleStatusFieldHook': '${env.cwd}/ExampleStatusFieldHook.php'
 
 example:
   # Used in testExampleConfiguration in tests/DrushExtensionTest.php
