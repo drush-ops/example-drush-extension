@@ -30,7 +30,9 @@ class ExampleStatusFieldHookTest extends TestCase
      */
     public function testDrushStatus()
     {
-        if (DRUSH_MAJOR_VERSION == '8') {
+        $this->drush('version', [], ['format' => 'string']);
+        $version = $this->getOutput();
+        if ($version[0] == '8') {
             $this->markTestSkipped('Status field injection only works in Drush 9+');
         }
 
