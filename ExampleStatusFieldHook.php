@@ -11,6 +11,8 @@ use Symfony\Component\Console\Event\ConsoleCommandEvent;
 /**
  * This hook file demonstrates how to add a new line to the drush
  * core:status command.
+ *
+ * Note that this hook requires Drush 9; it does not work in Drush 8.
  */
 class ExampleStatusFieldHook extends DrushCommands
 {

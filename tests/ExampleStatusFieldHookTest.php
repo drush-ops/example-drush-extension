@@ -30,6 +30,10 @@ class ExampleStatusFieldHookTest extends TestCase
      */
     public function testDrushStatus()
     {
+        if (DRUSH_MAJOR_VERSION == '8') {
+            $this->markTestSkipped('Status field injection only works in Drush 9+');
+        }
+
         $this->drush('status', [], ['format' => 'json']);
         $json = $this->getOutputFromJSON();
         $this->assertEquals('Successful', $json['bootstrap']);
