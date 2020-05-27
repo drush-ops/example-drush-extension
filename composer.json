@@ -23,7 +23,7 @@
         "composer/installers": "^1.2",
         "drupal-composer/drupal-scaffold": "^2.5",
         "drupal/core": "^8.7",
-        "drush/drush": "^8.2.2 || ^9.6.1",
+        "drush/drush": "^8.3.3 || ^10.2.2",
         "g1a/composer-test-scenarios": "^3.0.2",
         "phpunit/phpunit": "^6.5",
         "symfony/filesystem": "^3.4.28",
@@ -35,7 +35,7 @@
     "prefer-stable": true,
     "config": {
         "platform": {
-          "php": "7.1"
+          "php": "7.2"
         },
         "sort-packages": true
     },
@@ -60,7 +60,12 @@
         "scenarios": {
             "drush8": {
                 "require-dev": {
-                    "drush/drush": "^8.2.2"
+                    "drush/drush": "^8.3.3"
+                },
+                "config": {
+                    "platform": {
+                        "php": "7.0.8"
+                    }
                 }
             },
             "phpunit4": {
