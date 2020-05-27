@@ -1,6 +1,5 @@
 language: php
 dist: trusty
-sudo: false
 
 branches:
   only:
@@ -8,7 +7,6 @@ branches:
 
 matrix:
   include:
-    - php: 7.4
     - php: 7.3
     - php: 7.2
     - php: 7.2
@@ -17,11 +15,6 @@ matrix:
       env: 'SCENARIO=drush8'
     - php: 7.0
       env: 'SCENARIO=drush8'
-    # Drupal dropped support for php 5 in Drupal 8.7.0
-    - php: 5.6
-      env: 'SCENARIO=phpunit4'
-    - php: 5.6
-      env: 'SCENARIO=phpunit4 DEPENDENCIES=lowest'
 
 env:
   global:
@@ -29,7 +22,6 @@ env:
     - SIMPLETEST_BASE_URL="http://127.0.0.1:8080"
 
 before_install:
-  - if [[ $TRAVIS_PHP_VERSION = 5.6 ]]; then export COMPOSER_MEMORY_LIMIT=-1; fi;
   - echo 'sendmail_path = /bin/true' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
   - phpenv config-rm xdebug.ini
   - composer --verbose self-update --$COMPOSER_CHANNEL
