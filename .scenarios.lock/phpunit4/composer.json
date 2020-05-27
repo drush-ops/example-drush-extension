@@ -20,11 +20,12 @@
         "consolidation/site-process": "^2.0.0@stable"
     },
     "require-dev": {
-        "drupal/core": "~8.6.0",
+        "drupal/core-recommended": "~8.6.0",
         "phpunit/phpunit": "^4.8.36",
         "composer/installers": "^1.2",
-        "drupal-composer/drupal-scaffold": "^2.5",
-        "drush/drush": "^8.2.2 || ^9.6.1",
+        "drupal/core-composer-scaffold": "^8.8.1",
+        "pantheon-systems/drupal-integrations": "^8",
+        "drush/drush": "^8.3.3 || ^10.2.2",
         "g1a/composer-test-scenarios": "^3.0.2",
         "symfony/filesystem": "^3.4.28",
         "webflo/drupal-finder": "^1.1.0",
@@ -69,6 +70,17 @@
             "../../drush/Commands/{$name}": [
                 "type:drupal-drush"
             ]
+        },
+        "drupal-scaffold": {
+            "allowed-packages": [
+                "pantheon-systems/drupal-integrations"
+            ],
+            "locations": {
+                "web-root": "./sut/web"
+            },
+            "file-mapping": {
+                "[project-root]/.editorconfig": false
+            }
         }
     }
 }
