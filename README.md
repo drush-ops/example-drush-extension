@@ -3,7 +3,7 @@ Example Drush Extension
 
 [![Build Status](https://travis-ci.org/drush-ops/example-drush-extension.svg?branch=master)](https://travis-ci.org/drush-ops/example-drush-extension)
 
-This is an example Drush extension that is compatible with both Drush 9.6+ and Drush 8.2+. It includes tests that run on both versions of Drush.
+This is an example Drush extension that is compatible with Drush 10.0+, 9.6+, and Drush 8.2+. It includes tests that run on all versions of Drush.
 
 This this project demonstrates what is known as a "site-wide" Drush extension. Site-wide extensions are installed via Composer into a particular Drupal site. The other kinds of Drush extensions are Drush module commands and Drush global commands. See the [Creating Custom Drush Commands documentation](http://docs.drush.org/en/master/commands/) for more information.
 
